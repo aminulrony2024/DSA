@@ -53,7 +53,7 @@ int main()
     int n;
     do
     {
-        printf("\n1.Create  Binary Tree\n");
+        printf("\n1.Create the  Binary Tree\n");
         printf("2.Pre Order Traversal\n");
         printf("3.In Order Traversal\n");
         printf("4.Post Order Traversal\n");
