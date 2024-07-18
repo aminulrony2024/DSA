@@ -30,11 +30,19 @@ Node *createLinkedList()
     }
     return head;
 }
+Node *removeFromHead(Node *head)
+{
+    Node *temp = head;
+    head = head -> next;
+    delete temp;
+    return head;
+}
 int main()
 {
     Node *head = createLinkedList();
+    head = removeFromHead(head);
     Node *node = head;
-    cout << "Elements of the Linked List are : ";
+    cout << "Elements of the Linked List after removing from head are : ";
     while(node != nullptr)
     {
         cout<< node -> data<<" ";
