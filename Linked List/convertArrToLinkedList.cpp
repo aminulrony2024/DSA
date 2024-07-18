@@ -29,7 +29,7 @@ int main()
     vector<ll> arr = {5, 9, 8, 2};
     Node *head = convertArray2LL(arr);
     Node *node = head;
-    cout<<"Elements of the linked list : ";
+    cout << "Elements of the linked list : ";
     while (node != nullptr)
     {
         cout << node->data << " ";
