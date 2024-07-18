@@ -30,6 +30,14 @@ Node *createLinkedList()
     }
     return head;
 }
+void printLinkedList(Node *head)
+{
+    while(head != nullptr)
+    {
+        cout<< head -> data<<" ";
+        head = head -> next;
+    }
+}
 Node *removeFromHead(Node *head)
 {
     Node *temp = head;
@@ -40,13 +48,10 @@ Node *removeFromHead(Node *head)
 int main()
 {
     Node *head = createLinkedList();
+    cout<<"Elements of the Linked List :";
+    printLinkedList(head);
     head = removeFromHead(head);
-    Node *node = head;
-    cout << "Elements of the Linked List after removing from head are : ";
-    while(node != nullptr)
-    {
-        cout<< node -> data<<" ";
-        node = node -> next;
-    }
+    cout << endl<< "Elements of the Linked List after removing from head are : ";
+    printLinkedList(head);
     return 0;
 }
