@@ -32,10 +32,11 @@ Node *createLinkedList()
 }
 void printLinkedList(Node *head)
 {
-    while(head != nullptr)
+    Node *mover = head;
+    while(mover != nullptr)
     {
-        cout<< head -> data<<" ";
-        head = head -> next;
+        cout<< mover -> data<<" ";
+        mover = mover -> next;
     }
 }
 Node *removeFromHead(Node *head)
