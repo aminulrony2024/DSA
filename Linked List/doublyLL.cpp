@@ -39,6 +39,15 @@ Node *createDoublyLinkedList()
     }
     return head;
 }
+Node *deleteFirstNode(Node *head)
+{
+    Node *temp = head;
+    head = head -> next;
+    head -> back = nullptr;
+    temp -> back = nullptr;
+    delete temp;
+    return head;
+}
 void printDoublyLinkedList(Node *head)
 {
     Node *mover = head;
@@ -51,6 +60,10 @@ void printDoublyLinkedList(Node *head)
 int main()
 {
     Node *head = createDoublyLinkedList();
+    cout<<"Elements of the doubly linked list before deleting the first node : ";
+    printDoublyLinkedList(head);
+    head = deleteFirstNode(head);
+    cout<<endl<<"Elements of the doubly linked list after deleting the first node : ";
     printDoublyLinkedList(head);
     return 0;
 }
