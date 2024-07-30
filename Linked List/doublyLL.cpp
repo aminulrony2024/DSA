@@ -41,6 +41,8 @@ Node *createDoublyLinkedList()
 }
 Node *deleteFirstNode(Node *head)
 {
+    if(head == NULL || head -> next == NULL)
+    return NULL;
     Node *temp = head;
     head = head -> next;
     head -> back = nullptr;
