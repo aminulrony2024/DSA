@@ -60,9 +60,18 @@ Node *removeLastElement(Node *head)
 }
 Node *removeNthElement(Node *head)
 {   
+    if(head == NULL)
+    return head;
     cout<<"Position of element to be deleted : ";
     int n;
     cin>>n;
+    if(n == 1)
+    {
+        Node *temp = head;
+        head = head -> next;
+        delete temp;
+        return head;
+    }
     Node *mover = head;
     for(int i = 1; i < n - 1; i++)
     {
