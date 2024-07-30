@@ -45,13 +45,24 @@ Node *removeFromHead(Node *head)
     delete temp;
     return head;
 }
+Node *removeLastElement(Node *head)
+{
+    Node *temp = head;
+    if(temp == NULL || temp -> next == NULL)
+    return NULL;
+    while(temp -> next -> next != NULL)
+    {
+        temp = temp -> next;
+    }
+    delete temp -> next;
+    temp -> next = NULL;
+    return head;
+}
 int main()
 {
     Node *head = createLinkedList();
-    cout<<"Elements of the Linked List :";
-    printLinkedList(head);
-    head = removeFromHead(head);
-    cout << endl<< "Elements of the Linked List after removing from head are : ";
+    head = removeLastElement(head);
+    cout<<"Element of the linked list after deleting last element : ";
     printLinkedList(head);
     return 0;
 }
