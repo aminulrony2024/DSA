@@ -58,11 +58,26 @@ Node *removeLastElement(Node *head)
     temp -> next = NULL;
     return head;
 }
+Node *removeNthElement(Node *head)
+{   
+    cout<<"Position of element to be deleted : ";
+    int n;
+    cin>>n;
+    Node *mover = head;
+    for(int i = 1; i < n - 1; i++)
+    {
+        mover = mover -> next;
+    }
+    Node *temp = mover -> next;
+    mover -> next = mover -> next -> next;
+    delete temp;
+    return head;
+}
 int main()
 {
     Node *head = createLinkedList();
-    head = removeLastElement(head);
-    cout<<"Element of the linked list after deleting last element : ";
+    head = removeNthElement(head);
+    cout<<"Element of the linked list after deleting nth element : ";
     printLinkedList(head);
     return 0;
 }
