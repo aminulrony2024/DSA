@@ -16,6 +16,15 @@ public:
         data = data1;
         next = nullptr;
     }
+    void Display()
+    {
+        Node *temp = top;
+        while (temp != NULL)
+        {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+    }
     void Push(int x)
     {
         Node *temp = top;
@@ -49,23 +58,13 @@ int main()
         st.top = new Node(x);
         st.top->next = temp;
     }
-    temp = st.top;
     cout << "Element of the stack are : ";
-    while (temp != NULL)
-    {
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
+    st.Display();
     cout << endl
          << "Enter new element to be inserted in the stack :";
     cin >> x;
     st.Push(x);
     cout << "Element of the stack after adding new element : ";
-    temp = st.top;
-    while (temp != NULL)
-    {
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
+    st.Display();
     return 0;
 }
