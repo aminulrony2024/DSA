@@ -17,6 +17,13 @@ class Stack
             S[top] = x;
         }
     }
+    void Pop()
+    {
+        if(top != -1)
+        {
+            top--;
+        }
+    }
 };
 int main()
 {
@@ -35,9 +42,5 @@ int main()
     cout<<"Elements of the stack are : ";
     for(int i = 0; i < st.size; i++)
     cout<<st.S[i]<<" ";
-    cout<<endl<<"Try to enter new element in the stack : ";
-    int n;
-    cin>>n;
-    st.Push(n);
     return 0;
 }
