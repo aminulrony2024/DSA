@@ -22,6 +22,15 @@ public:
         top = new Node(x);
         top->next = temp;
     }
+    void Pop()
+    {
+        if (top != NULL)
+        {
+            Node *temp = top;
+            top = top->next;
+            delete temp;
+        }
+    }
 };
 int main()
 {
