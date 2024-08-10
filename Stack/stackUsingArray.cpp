@@ -35,5 +35,9 @@ int main()
     cout<<"Elements of the stack are : ";
     for(int i = 0; i < st.size; i++)
     cout<<st.S[i]<<" ";
+    cout<<endl<<"Try to enter new element in the stack : ";
+    int n;
+    cin>>n;
+    st.Push(n);
     return 0;
 }
