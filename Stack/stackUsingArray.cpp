@@ -40,7 +40,7 @@ int main()
         st.Push(x);
     }
     cout<<"Elements of the stack are : ";
-    for(int i = 0; i < st.size; i++)
+    for(int i = st.size - 1; i >= 0; i--)
     cout<<st.S[i]<<" ";
     return 0;
 }
