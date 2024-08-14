@@ -66,12 +66,34 @@ public:
             }
             else
             {
+                rear->next = temp;
                 rear = temp;
             }
         }
     }
-    void Dequeue()
+    Tnode *Dequeue()
     {
+        if (isEmpty())
+        {
+            cout << "Queue is underflow" << endl;
+        }
+        else
+        {
+            if (front == rear)
+            {
+                Tnode *t = front->data;
+                front = rear = nullptr;
+                return t;
+            }
+            else
+            {
+                Tnode *t = front->data;
+                Node *temp = front;
+                front = front->next;
+                delete temp;
+                return t;
+            }
+        }
     }
 };
 class Tree
@@ -87,6 +109,11 @@ public:
         cin >> x;
         root = new Tnode(x);
         Queue Q;
+        Q.Enqueue(root);
+        while (!Q.isEmpty())
+        {
+            Tnode *p = Q.Dequeue();
+        }
     }
 };
 int main()
