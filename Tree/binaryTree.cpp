@@ -112,7 +112,23 @@ public:
         Q.Enqueue(root);
         while (!Q.isEmpty())
         {
-            Tnode *p = Q.Dequeue();
+            p = Q.Dequeue();
+            cout << "Enter the left child (enter -1 to ignore ) of " << p->data << " :";
+            cin >> x;
+            if (x != -1)
+            {
+                t = new Tnode(x);
+                p->lchild = t;
+                Q.Enqueue(t);
+            }
+            cout << "Enter the right child (enter -1 to ignore ) of " << p->data << " :";
+            cin >> x;
+            if (x != -1)
+            {
+                t = new Tnode(x);
+                p->rchild = t;
+                Q.Enqueue(t);
+            }
         }
     }
 };
