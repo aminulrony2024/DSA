@@ -51,7 +51,7 @@ public:
     }
     void Enqueue(Tnode *new_node)
     {
-        Node *temp = nullptr;
+        Node *temp = new Node();
         temp->data = new_node;
         temp->next = nullptr;
         if (isFull())
@@ -131,8 +131,21 @@ public:
             }
         }
     }
+    void PreOrder(Tnode *p)
+    {
+        if (p)
+        {
+            cout << p->data << ", ";
+            PreOrder(p->lchild);
+            PreOrder(p->rchild);
+        }
+    }
 };
 int main()
 {
+    Tree T;
+    T.createTree();
+    cout << "Pre order traversal of tree : ";
+    T.PreOrder(T.root);
     return 0;
 }
