@@ -64,6 +64,18 @@ public:
             Inorder(p->rchild);
         }
     }
+    int Height(Node *p)
+    {
+        int x;
+        int y;
+        if (p == nullptr)
+        {
+            return 0;
+        }
+        x = Height(p->lchild);
+        y = Height(p->rchild);
+        return x > y ? x + 1 : y + 1;
+    }
 };
 int main()
 {
@@ -79,5 +91,7 @@ int main()
     }
     cout << "In order Traversal of the binary search tree : ";
     T.Inorder(T.getRoot());
+    cout << endl
+         << "Height of the tree is : " << T.Height(T.getRoot());
     return 0;
 }
