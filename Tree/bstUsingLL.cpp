@@ -78,25 +78,63 @@ public:
     }
     Node *InPre(Node *p)
     {
-        if(p)
-        p = p -> lchild;
-        else
-        return NULL;
-        while (p->rchild)
-        {
-            p = p->rchild;
-        }
+        if (p)
+            while (p->rchild)
+            {
+                p = p->rchild;
+            }
         return p;
     }
     Node *InSucc(Node *p)
     {
-        if(p)
-        p = p -> rchild;
-        else
-        return NULL;
-        while (p->lchild)
+        if (p)
+            while (p->lchild)
+            {
+                p = p->lchild;
+            }
+        return p;
+    }
+    Node *Delete(Node *p, int key)
+    {
+        Node *q;
+
+        if (p == nullptr)
         {
-            p = p->lchild;
+            return nullptr;
+        }
+
+        if (p->lchild == nullptr && p->rchild == nullptr)
+        {
+            if (p == root)
+            {
+                root = nullptr;
+            }
+            delete p;
+            return nullptr;
+        }
+
+        if (key < p->data)
+        {
+            p->lchild = Delete(p->lchild, key);
+        }
+        else if (key > p->data)
+        {
+            p->rchild = Delete(p->rchild, key);
+        }
+        else
+        {
+            if (Height(p->lchild) > Height(p->rchild))
+            {
+                q = InPre(p->lchild);
+                p->data = q->data;
+                p->lchild = Delete(p->lchild, q->data);
+            }
+            else
+            {
+                q = InSucc(p->rchild);
+                p->data = q->data;
+                p->rchild = Delete(p->rchild, q->data);
+            }
         }
         return p;
     }
@@ -116,8 +154,11 @@ int main()
     cout << "In order Traversal of the binary search tree : ";
     T.Inorder(T.getRoot());
     cout << endl
-         << "Height of the tree is : " << T.Height(T.getRoot()) << endl;
-    cout << "Inorder Predecessor of the binary tree  is : " << T.InPre(T.getRoot()) -> data << endl;
-    cout << "Inorder esSuccssor of the binary tree  is : " << T.InSucc(T.getRoot()) -> data << endl;
+         << "Delete a node in the bst : ";
+    int v;
+    cin >> v;
+    T.Delete(T.getRoot(), v);
+    cout << "After deleting, inorder traversal of the bst is : ";
+    T.Inorder(T.getRoot());
     return 0;
 }
