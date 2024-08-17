@@ -38,17 +38,15 @@ public:
         while (t != nullptr)
         {
             r = t;
-            if (key < t->data)
+            if (key == t->data)
+                return;
+            else if (key < t->data)
             {
                 t = t->lchild;
             }
-            else if (key > t->data)
-            {
-                t = t->rchild;
-            }
             else
             {
-                return;
+                t = t->rchild;
             }
         }
         p = new Node(key);
