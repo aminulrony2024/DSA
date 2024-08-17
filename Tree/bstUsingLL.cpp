@@ -76,6 +76,30 @@ public:
         y = Height(p->rchild);
         return x > y ? x + 1 : y + 1;
     }
+    Node *InPre(Node *p)
+    {
+        if(p)
+        p = p -> lchild;
+        else
+        return NULL;
+        while (p->rchild)
+        {
+            p = p->rchild;
+        }
+        return p;
+    }
+    Node *InSucc(Node *p)
+    {
+        if(p)
+        p = p -> rchild;
+        else
+        return NULL;
+        while (p->lchild)
+        {
+            p = p->lchild;
+        }
+        return p;
+    }
 };
 int main()
 {
@@ -92,6 +116,8 @@ int main()
     cout << "In order Traversal of the binary search tree : ";
     T.Inorder(T.getRoot());
     cout << endl
-         << "Height of the tree is : " << T.Height(T.getRoot());
+         << "Height of the tree is : " << T.Height(T.getRoot()) << endl;
+    cout << "Inorder Predecessor of the binary tree  is : " << T.InPre(T.getRoot()) -> data << endl;
+    cout << "Inorder esSuccssor of the binary tree  is : " << T.InSucc(T.getRoot()) -> data << endl;
     return 0;
 }
